@@ -55,6 +55,10 @@ export const GrandmastersPage = () => {
         const abortController = new AbortController();
 
         getUsernames(abortController.signal);
+
+        return () => {
+            abortController.abort();
+        };
     }, []);
 
     const filterDebounced = useCallback(
@@ -82,7 +86,7 @@ export const GrandmastersPage = () => {
 
     if (isError) {
         return (
-            <div className="h-full flex items-center justify-center w-full flex-col gap-4">
+            <div className="h-full flex items-center justify-center w-full flex-col gap-4" data-testid="grandmasters-error">
                 <div className="text-lg">Something went wrong</div>
                 <CircleX className="h-12 w-12 text-red-400" />
             </div>

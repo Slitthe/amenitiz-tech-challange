@@ -47,11 +47,11 @@ export const GrandmasterProfilePage = () => {
         return () => {
             abortController.abort();
         };
-    }, []);
+    }, [username]);
 
     if (isError) {
         return (
-            <Card className="w-full">
+            <Card className="w-full" data-testid="grandmaster-profile-error">
                 <CardHeader className="flex items-center justify-between">
                     <CardAction>
                         <Button asChild variant="link" className="hover:cursor-pointer">
@@ -80,7 +80,7 @@ export const GrandmasterProfilePage = () => {
     }
 
     return (
-        <Card className="w-full">
+        <Card className="w-full" data-testid="grandmaster-profile-content">
             <CardHeader className="flex items-center justify-between">
                 <CardAction>
                     <Button asChild variant="link" className="hover:cursor-pointer">

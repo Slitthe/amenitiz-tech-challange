@@ -17,7 +17,6 @@ export function GrandmastersTablePagination({
     onPageChange: (page: number) => void;
     disabled?: boolean;
 }) {
-    console.log({ totalItems });
     const { currentPages } = usePagination({
         pageSize: pageSize,
         currentPage: activePage,

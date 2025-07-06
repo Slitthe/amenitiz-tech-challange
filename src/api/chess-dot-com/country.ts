@@ -10,7 +10,6 @@ const countrySchema = z.object({
 export type CountryDetails = z.infer<typeof countrySchema>;
 
 export const apiGetCountry = async (countryCode: string, abortSignal?: AbortSignal): Promise<CountryDetails> => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
     const response = await chessDotComApiClient.get<unknown>(`/country/${countryCode}`, {
         signal: abortSignal,
     });

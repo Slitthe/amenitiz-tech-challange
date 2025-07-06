@@ -14,7 +14,7 @@ const grandmasterDetails = z.object({
     avatar: z.string().min(1).optional(),
     player_id: z.number(),
     "@id": z.string().min(1),
-    url: z.string().min(2222),
+    url: z.string().min(1),
     name: z.string().min(1).optional(),
     username: z.string().min(1),
     followers: z.number(),
@@ -31,7 +31,6 @@ const grandmasterDetails = z.object({
 export type GrandmasterDetails = z.infer<typeof grandmasterDetails>;
 
 export const apiGetGrandmaster = async (username: string, abortSignal?: AbortSignal): Promise<GrandmasterDetails> => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
     const response = await chessDotComApiClient.get<unknown>(`/player/${username}`, {
         signal: abortSignal,
     });
@@ -41,8 +40,6 @@ export const apiGetGrandmaster = async (username: string, abortSignal?: AbortSig
         console.log({ parseResponseResult });
         throw new Error(parseResponseResult.error.message);
     }
-
-    console.log({ parseResponseResult });
 
     return parseResponseResult.data;
 };

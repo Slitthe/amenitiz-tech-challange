@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { apiGetCountry, type CountryDetails } from "@/api/chess-dot-com/country.ts";
+import { AxiosError } from "axios";
 
 export const useGetCountry = (countryCode?: string) => {
     const [countryDetails, setCountryDetails] = useState<CountryDetails | null>(null);
@@ -11,6 +12,10 @@ export const useGetCountry = (countryCode?: string) => {
             const country = await apiGetCountry(username, abortSignal);
             setCountryDetails(country);
             setLoading(false);
+        } catch (e) {
+            if (e instanceof AxiosError && e.code === "ERR_CANCELED") {
+                return;
+            }
         } finally {
             setLoading(false);
         }
