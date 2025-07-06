@@ -1,12 +1,12 @@
 ## Running the app
 
 ### With docker
-
-1. Open a bash terminal shell in the project's root directory
-2. Build the image using the command ```docker build -t silviu-fe-challange .```
-3. Run the container with ```docker run --rm -p 4173:4173 -d --platform linux/amd64 --env-file .env silviu-fe-challange``` (replace the 4173 on the left with your desire port, to run it at port 3000 use -p 3000:4173), after running this command you will get a hash, like this ```c7a249c293c19cea6d8872f91d42adb4301010215f64c1e8d1f9721920dfa982```
-4. Open a browser and navigate to locahost:4173 (or your port)
-5. To remove the container and image from your machine run
+1. Make sure you have Docker installed and running (https://www.docker.com/products/docker-desktop/)
+2. Open a bash terminal shell in the project's root directory
+3. Build the image using the command ```docker build -t silviu-fe-challange .```
+4. Run the container with ```docker run --rm -p 4173:4173 -d --platform linux/amd64 --env-file .env silviu-fe-challange``` (replace the 4173 on the left with your desire port, to run it at port 3000 use -p 3000:4173), after running this command you will get a hash, like this ```c7a249c293c19cea6d8872f91d42adb4301010215f64c1e8d1f9721920dfa982```
+5. Open a browser and navigate to locahost:4173 (or your port)
+6. To remove the container and image from your machine run
     1. ```docker stop c7a249c293c19cea6d8872f91d42adb4301010215f64c1e8d1f9721920dfa982``` (replace with your own hash) this will remove the container due to the ```--rm``` flag
     2. ```docker rmi silviu-fe-challange```
 
