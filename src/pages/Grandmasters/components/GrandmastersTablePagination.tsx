@@ -17,6 +17,7 @@ export function GrandmastersTablePagination({
     onPageChange: (page: number) => void;
     disabled?: boolean;
 }) {
+    console.log({ totalItems });
     const { currentPages } = usePagination({
         pageSize: pageSize,
         currentPage: activePage,
@@ -34,11 +35,11 @@ export function GrandmastersTablePagination({
     };
 
     const goToNextPage = () => {
-        onPageChange(Math.min(totalPages - 1, activePage + 1));
+        onPageChange(Math.min(totalPages, activePage + 1));
     };
 
     const skipNext = () => {
-        onPageChange(Math.min(totalPages - 1, activePage + 5));
+        onPageChange(Math.min(totalPages, activePage + 5));
     };
 
     const skipPrev = () => {
@@ -64,7 +65,7 @@ export function GrandmastersTablePagination({
                 ) : null}
 
                 {(disabled ? [1, 2, 3] : currentPages).map((currentPage) => (
-                    <PaginationItem>
+                    <PaginationItem key={currentPage}>
                         <Button
                             disabled={disabled}
                             className="hover:cursor-pointer"

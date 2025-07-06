@@ -24,7 +24,7 @@ export function GrandmastersTable({ isLoading, usernames }: { isLoading: boolean
                 {usernames.map((username) => (
                     <TableRow key={username}>
                         <TableCell className="font-medium">
-                            <Link to={`/profile/${username}`} className="h-6 w-full inline-block hover:underline">
+                            <Link to={`/grandmaster/${username}`} className="h-6 w-full inline-block hover:underline">
                                 {username}
                             </Link>
                         </TableCell>

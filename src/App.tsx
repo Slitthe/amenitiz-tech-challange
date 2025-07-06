@@ -2,6 +2,7 @@ import chessPng from "./assets/chess_bg.png";
 
 import { Navigate, Route, Routes } from "react-router";
 import { GrandmastersPage } from "@/pages/Grandmasters/GrandmastersPage.tsx";
+import { GrandmasterProfilePage } from "@/pages/GrandmasterProfile/GrandmasterProfilePage.tsx";
 
 export const App = () => {
     return (
@@ -14,6 +15,7 @@ export const App = () => {
             <div className="flex-1 flex flex-col overflow-hidden w-full px-8 gap-4 pb-4 lg:w-xl lg:px-2 lg:mt-4">
                 <Routes>
                     <Route path="/" element={<GrandmastersPage />} />
+                    <Route path="/grandmaster/:username" element={<GrandmasterProfilePage />} />
                     <Route path="*" element={<Navigate to={"/"} replace />} />
                 </Routes>
             </div>
